@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Redirect, Link } from 'react-router-dom'
 import axios from 'axios';
 import { LoginContext } from '../../contexts/LoginContext';
+import { serverUrl } from '../../utils/env';
 
 function Login() {
     let [username, setUsername] = useState('');
@@ -16,8 +17,9 @@ function Login() {
         e.preventDefault();
         console.log("username is " + username);
         console.log("password is " + password);
-        var serverUrl = "http://localhost:3001"
-        axios.post(serverUrl + '/api/login', {
+        var url = serverUrl + '/api/login';
+        console.log("url", url);
+        axios.post(url, {
                 username: username,
                 password: password, 
                 redirectTo: redirectTo
