@@ -43,21 +43,10 @@ require("./routes/user-api-routes.js")(app);
 // });
 
 
-if (process.env.NODE_ENV === "production") {
-    // For heroku environment, we don't need to create users automatically.
-    db.sequelize.sync()
-    .then(function() {
-        app.listen(PORT, async function() {
-            console.log("==> Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-        });
+db.sequelize.sync({force:true})
+.then(function() {
+    seed.createUsers();
+    app.listen(PORT, async function() {
+        console.log("==> Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
     });
-} else {
-    // For develolpment only, create users automatically on startup.  
-    db.sequelize.sync({force:true})
-    .then(function() {
-        seed.createUsers();
-        app.listen(PORT, async function() {
-            console.log("==> Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-        });
-    });
-}
+});
