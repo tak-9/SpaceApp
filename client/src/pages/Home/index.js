@@ -33,7 +33,7 @@ function Home() {
                                         <button className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" id="signinbtn">Sign in</button>
                                         <button className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" id="signupbtn">Sign up</button>
                                         <div className="text-center">
-                                            <a className="small" href="#">Forgot password?</a>
+                                            <a className="small" href="/">Forgot password?</a>
                                         </div>
                                     </form>
                                 </div>
