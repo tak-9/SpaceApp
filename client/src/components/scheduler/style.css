@@ -1,0 +1,29 @@
+.scheduler{
+    margin:0 auto;
+    width: 50vw;
+}
+td{
+    border-right: 3px solid lightslategray;
+    text-align: center;
+}
+th{
+    text-align: center;
+}
+
+.schedule-content{
+    height: 50px;
+    width: 400px;
+    text-align: center;
+    justify-content: center;
+}
+.even-row{
+    background: lightblue;
+}
+.odd-row{
+    background: lightgray;
+}
+.drag{
+    margin:0 auto;
+    width: 50%;
+    background: yellow;
+}
