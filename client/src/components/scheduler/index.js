@@ -8,44 +8,43 @@ function Schedule() {
 
     const hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     return (
-        <div>
-            <table className="scheduler">
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th className="schedule-content">Content</th>
-                        <th></th>
+        <table className="scheduler">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th className="schedule-content">Content</th>
+                </tr>
+            </thead>
+            <tbody>
+                {hours.map(hour => (
+                    <tr key={hour} className={hour % 2 === 0 ? "even-row" : "odd-row"} >
+                        <td  className="time">{hour}AM  </td>
+                        <td className="schedule-content">
+
+                            <Droppable id={`drop${hour}am`}>
+
+                                Content  <Draggable id={`${hour}am`}> test </Draggable>  <span className="far fa-trash-alt"></span>
+
+
+                            </Droppable>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    {hours.map(hour => (
-                        <tr key={hour} className={hour % 2 === 0 ? "even-row" : "odd-row"} >
-                            <td >{hour}AM  </td>
-
+                ))}
+                {hours.map(hour => (
+                    <tr key={hour} className={hour % 2 === 0 ? "even-row" : "odd-row"}>
+                        <td className="time" > {hour} PM  </td>
+                        <td className="schedule-content">
                             <Droppable id={`drop${hour}am`}>
+                                Content  <Draggable id={`${hour}pm`} >test</Draggable>   <span className="far fa-trash-alt"></span>
 
-                                <td className="schedule-content">
-                                  Content  <Draggable id={`${hour}am`}> test </Draggable>  <span className="far fa-trash-alt"></span>
-                                </td>
 
                             </Droppable>
-                        </tr>
-                    ))}
-                    {hours.map(hour => (
-                        <tr key={hour} className={hour % 2 === 0 ? "even-row" : "odd-row"}>
-                            <td > {hour} PM  </td>
-                            <Droppable id={`drop${hour}am`}>
-                                <td className="schedule-content">
-                                  Content  <Draggable id={`${hour}pm`} >test</Draggable>   <span className="far fa-trash-alt"></span>
-                                </td>
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
 
-                            </Droppable>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-
-        </div>
     )
 }
 
