@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Login from "./pages/Login";
 import Private from "./pages/Private";
 import Signup from "./pages/Signup";
+import PieChart from "./pages/Chart";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/private" component={Private} />
                     <Route exact path="/signup" component={Signup} />
+                    <Route exact path="/chart" component={PieChart} />
                 </div>
             </BrowserRouter>
         </LoginContextProvider>

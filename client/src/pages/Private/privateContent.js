@@ -1,13 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { LoginContext } from '../../contexts/LoginContext';
 
 function PrivateContent() {
     let history = useHistory();
     let loginCtx = useContext(LoginContext);
     let { setLogInState, username } = loginCtx;
-
-    const[redirectUrl, setRedirectUrl] = useState('');
 
     const logoutHandler = () => {
         console.log("logoutHandler");
