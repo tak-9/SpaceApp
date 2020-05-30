@@ -5,7 +5,7 @@ import axios from 'axios';
 import TaskCard from "./TaskCard";
 
 function TaskList(props) {
-    const [tasks, setTasks] = useState('');
+    const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
         var url = serverUrl + '/api/all';
@@ -13,8 +13,8 @@ function TaskList(props) {
         axios.get(url)
         .then(res => {
             console.log("--------------------")
-            console.log("### OK TaskList useEffect() axios get ", url, res);
-            setTasks(res);
+            console.log("### OK TaskList useEffect() axios get ", url, res.data);
+            setTasks(res.data);
         })
         .catch(err => {
             console.log("### Error TaskList useEffect() axios get ", err);
