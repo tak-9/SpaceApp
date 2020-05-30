@@ -13,6 +13,7 @@ function PrivateContent() {
     let history = useHistory();
     let loginCtx = useContext(LoginContext);
     let { setLogInState, username } = loginCtx;
+    const getUsername = localStorage.getItem('username');
 
     const [adding, setAdding] = useState(false);
     const[redirectUrl, setRedirectUrl] = useState('');
@@ -53,7 +54,7 @@ function PrivateContent() {
         <div className="body">
             <div className="center"> 
             {/* <h1>Private Page</h1> */}
-            <h3>Scheduling For {username}!</h3>
+            <h3>Scheduling For {getUsername}!</h3>
             </div>
             <br />
     { adding ? <TaskAdding onClick={handleSubmitForm} adding={adding} taskButtonClick={handleSubmit}/> : <TaskButton onClick={handleSubmit}/> } 

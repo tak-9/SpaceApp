@@ -12,6 +12,7 @@ function Private() {
     let { loggedIn } = loginCtx;
     const [redirectTo, setRedirectTo] = useState('');
 
+
     useEffect(() => {
 
         const getUsername = localStorage.getItem('username');
@@ -26,18 +27,18 @@ function Private() {
 		} 
 		if (getUsername) {
 			console.log("user is logged in")
-            setRedirectTo("/scheduler");
+            // setRedirectTo("/schedulemaker");
 
 		}
 
 	}, [])
 
     return (
-        <>
+        <div>
             {/* { loggedIn ? <PrivateContent />: <Home /> } */}
             <PrivateContent />
             <Schedule />
-        </>
+        </div>
     );
     
 }
