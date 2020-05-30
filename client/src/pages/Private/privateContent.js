@@ -6,6 +6,7 @@ import TaskButton from "./TaskButton.js";
 import axios from 'axios';
 import { serverUrl } from '../../utils/env';
 import TaskList from "./TaskList.js";
+import Schedule from '../../components/scheduler';
 import "./style.css";
 
 function PrivateContent() {
@@ -16,11 +17,11 @@ function PrivateContent() {
     const [adding, setAdding] = useState(false);
     const[redirectUrl, setRedirectUrl] = useState('');
 
-    const logoutHandler = () => {
-        console.log("logoutHandler");
-        setLogInState(false, null);
-        history.push("/");        
-    } 
+    // const logoutHandler = () => {
+    //     console.log("logoutHandler");
+    //     setLogInState(false, null);
+    //     history.push("/");        
+    // } 
 
     const handleSubmit = () => {
         setAdding(true);
@@ -51,7 +52,7 @@ function PrivateContent() {
     return (
         <div className="body">
             <div className="center"> 
-            <h1>Private Page</h1>
+            {/* <h1>Private Page</h1> */}
             <h3>Scheduling For {username}!</h3>
             </div>
             <br />
@@ -59,7 +60,8 @@ function PrivateContent() {
             <br />
             <TaskList tasks={tasks} />
             <br />
-            <button onClick={logoutHandler}>Logout</button> 
+            {/* <button onClick={logoutHandler}>Logout</button>  */}
+            {/* <Schedule/>  */}
         </div>
     );    
 }

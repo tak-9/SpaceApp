@@ -1,5 +1,5 @@
 import "./index.css";
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { useHistory } from 'react-router';  
 import axios from 'axios';
@@ -16,11 +16,31 @@ function Home() {
 
     const loginCtx = useContext(LoginContext);
     const { setLogInState } = loginCtx;
+    
+    useEffect(() => {
+
+        const getUsername = localStorage.getItem('username');
+        
+		// axios.get using userid and token from localstorage, backend use id to verify against mongoose id + token (middle)
+
+		if (!getUsername) {
+            console.log("no user exists")
+            // setRedirectTo("/");
+            return;
+			
+		} 
+		if (getUsername) {
+			console.log("user is logged in")
+            setRedirectTo("/scheduler");
+		}
+
+	}, [])
+
+
 
     const submitForm = e => {
         e.preventDefault();
         console.log("username is " + username);
-        console.log("password is " + password);
         var url = serverUrl + '/api/login';
         console.log("url", url);
         axios.post(url, {
@@ -34,6 +54,7 @@ function Home() {
                 if (response.status === 200) {
                     console.log("Login Successful.");
                     setLogInState(true, response.data.username);
+                    localStorage.setItem('username', response.data.username);
                     setRedirectTo("/scheduler");
                 }
             })
