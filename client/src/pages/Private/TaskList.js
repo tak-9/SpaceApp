@@ -8,11 +8,12 @@ function TaskList(props) {
     var tasks = {}
 
     useEffect(() => {
-        var url = serverUrl + '/api/dummyname';
+        var url = serverUrl + '/api/get';
         axios.get(url)
         .then((res)=>{
             console.log("### OK TaskList useEffect() axios get ", url, res);
             tasks = res;
+            console.log(res);
         })
         .catch((err)=>{
             console.log("### Error TaskList useEffect() axios get ", err);
@@ -21,13 +22,13 @@ function TaskList(props) {
 
     return (
         <div className="tasklist">
-            {tasks.map(task => (
+            {/* {tasks.map(task => (
                                 <TaskCard
                                     taskname={task.taskname}
                                     category={task.category}
                                     completed={task.completed}
                                 />
-                            ))}
+                            ))} */}
         </div>
     );
 }
