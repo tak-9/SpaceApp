@@ -1,12 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import { LoginContext } from '../../contexts/LoginContext';
+import TaskAdding from "./TaskAdding.js";
+import TaskButton from "./TaskButton.js";
+import TaskList from "./TaskList.js";
 
 function PrivateContent() {
     let history = useHistory();
     let loginCtx = useContext(LoginContext);
     let { setLogInState, username } = loginCtx;
 
+    const [adding, setAdding] = useState(false);
     const[redirectUrl, setRedirectUrl] = useState('');
 
     const logoutHandler = () => {
@@ -15,23 +19,21 @@ function PrivateContent() {
         history.push("/");        
     } 
 
+    const handleSubmit = () => {
+        setAdding(true);
+    } 
+
+    const handleSubmitForm = () => {
+        setAdding(false);
+        
+    } 
+
     return (
         <div>
             <h1>Private Page</h1>
-            <h3>This is top secret information for {username}!</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet diam tortor, id
-                consequat mauris ullamcorper eu. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus. Pellentesque et dui id justo finibus
-                sollicitudin at et metus. Ut feugiat tellus nec metus commodo, sed suscipit nisi
-                gravida. Duis eget vestibulum quam, ut porttitor sem. Donec sagittis mi sollicitudin
-                turpis semper, et interdum risus lobortis. Vestibulum suscipit nunc non egestas
-                tristique. Proin hendrerit efficitur malesuada. Mauris lorem urna, sodales accumsan
-                quam non, tristique tempor erat. Nullam non sem facilisis, tempus tortor sit amet,
-                volutpat nisl. Ut et turpis non nunc maximus mollis a vitae tortor. Pellentesque
-                mattis risus ac quam laoreet cursus. Praesent suscipit orci neque, vestibulum
-                tincidunt augue tincidunt non. Duis consequat mattis tortor vitae mattis.
-            </p>
+            <h3>Scheduling For {username}!</h3>
+            { adding ? <TaskAdding onClick={handleSubmitForm}/> : <TaskButton onClick={handleSubmit}/>}  
+            <TaskList />
             <button onClick={logoutHandler}>Logout</button> 
         </div>
     );    
