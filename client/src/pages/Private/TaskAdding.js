@@ -10,23 +10,7 @@ function TaskAdding(props) {
     const [taskname, setTaskname] = useState('');
     const [category, setCategory] = useState('');
     const [reoccurring, setReoccurring] = useState('');
-    const [tasks, setTasks] = useState([]);
-
-     useEffect(() => {
-        var url = serverUrl + '/api/all';
-
-        axios.get(url)
-            .then(res => {
-                console.log("--------------------")
-                console.log("### OK TaskList useEffect() axios get ", url, res.data);
-                setTasks(res.data);
-                console.log(tasks);
-            })
-            .catch(err => {
-                console.log("### Error TaskList useEffect() axios get ", err);
-            });
-     }, [])
-
+   
     const handle = (event) => {
         event.preventDefault();
         console.log("------------------------")
@@ -91,7 +75,6 @@ function TaskAdding(props) {
                 </form>
             </div>
             <br />
-            <TaskList tasks={tasks} />
         </div>
     );
 }

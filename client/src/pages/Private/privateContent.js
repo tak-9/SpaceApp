@@ -6,6 +6,7 @@ import TaskButton from "./TaskButton.js";
 import axios from 'axios';
 import { serverUrl } from '../../utils/env';
 import TaskList from "./TaskList.js";
+import "./style.css";
 
 function PrivateContent() {
     let history = useHistory();
@@ -48,12 +49,16 @@ function PrivateContent() {
 
 
     return (
-        <div>
+        <div className="body">
+            <div className="center"> 
             <h1>Private Page</h1>
             <h3>Scheduling For {username}!</h3>
+            </div>
+            <br />
     { adding ? <TaskAdding onClick={handleSubmitForm} adding={adding} taskButtonClick={handleSubmit}/> : <TaskButton onClick={handleSubmit}/> } 
             <br />
             <TaskList tasks={tasks} />
+            <br />
             <button onClick={logoutHandler}>Logout</button> 
         </div>
     );    

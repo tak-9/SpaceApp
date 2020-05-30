@@ -4,15 +4,22 @@ import "./style.css";
 function TaskCard(props) {
   var completed = "";
   if (props.completed === false) {
-    completed = "false";
+    completed = "Uncompleted";
   } else {
-    completed = "true";
+    completed = "Completed";
   }
+
+  const handleComplete = () => {
+    completed = "Completed";
+} 
+
   return (
     <tr>
     <td>{props.taskname}</td>
     <td>{props.category}</td>
-    <td>{completed}</td>
+    <td>
+    <button onClick={handleComplete}>Complete</button>
+    </td>
    </tr>
   );
 }
