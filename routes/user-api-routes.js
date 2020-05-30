@@ -33,8 +33,13 @@ module.exports = function (app) {
     });
 
     app.get("/api/logout", function (req, res) {
+        console.log("logout successful")
         req.logout();
-        res.send({});
+        res.send({
+            success: true,
+            mes: 'user logged out'
+        });
+        
     });
 
     app.post("/api/signup", function (req, res) {
