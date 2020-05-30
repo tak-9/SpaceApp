@@ -98,4 +98,17 @@ module.exports = function (app) {
         });
     })
 
+    app.get("/api/all", function (req, res) {
+        db.Tasks.findAll({})
+        .then(function (results) {
+            console.log("Reached api get!");
+            res.json(results);
+        })
+        .catch(function (err) {
+            console.log("catch get", err);
+            res.status(500).json({ "message": "Error in getting." });
+        });
+    });
+
+
 }
