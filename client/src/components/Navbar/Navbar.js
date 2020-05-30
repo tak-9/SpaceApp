@@ -84,7 +84,7 @@ function Navbar() {
     
                                     <div className="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
                                         <a className="dropdown-item" href="/">Home</a>
-                                        <a className="dropdown-item" href="/scheduler">My Scheduler</a>
+                                        <a className="dropdown-item" href="/schedulemaker">My Scheduler</a>
                                         <a className="dropdown-item" href="/chart">My Progress</a>
                                         <div className="dropdown-divider"></div>
                                         <a className="dropdown-item" href="/about">About us</a>
