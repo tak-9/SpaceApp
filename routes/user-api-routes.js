@@ -13,13 +13,13 @@ module.exports = function (app) {
                 res.status(500).json({ message: 'Something went wrong authenticating user' });
                 return;
             }
-    
+
             if (!theUser) {
-                console.log("!theUser",err, theUser, failureDetails)
+                console.log("!theUser", err, theUser, failureDetails)
                 res.status(401).json(failureDetails);
                 return;
             }
-    
+
             // save user in session
             req.login(theUser, (err) => {
                 if (err) {
@@ -37,19 +37,44 @@ module.exports = function (app) {
         res.send({});
     });
 
-    app.post("/api/signup", async function (req, res) {
-        console.log("POST /api/signup", req);
-        var user = req.body.user;
+    app.post("/api/signup", function (req, res) {
 
-        await db.User.create(student)
-        .then((data) => {
-            res.status(201).json({});
-        })
-        .catch(function (err) {
-            console.log("catch create", err);
-            res.status(500).json({ "message": "Error in creating." });
-        });
+
+        if (!req.body.username || !req.body.password) {
+            res.status(400).json({
+                message: 'Please enter all fields.'
+            })
+        }
+
+        else {
+
+            console.log("hello from signup" + req.body.username)
+
+            db.User.create({
+                username: req.body.username,
+                password: req.body.password
+            })
+
+
+                .then(function (user) {
+                    res.send({
+                        user: {
+                            id: user.id,
+                            username: user.username,
+                            success: true,
+                            mes: 'user account created'
+                        }
+                    });
+                })
+
+                .catch(function (err) {
+                    res.status(401).json(err);
+                });
+
+        }
+
     })
+
 
     app.post("/api/create", async function (req, res) {
         console.log("POST /api/create", req);
