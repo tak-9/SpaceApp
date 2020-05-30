@@ -1,0 +1,10 @@
+.body {
+    background-image: url("https://cdn.shopify.com/s/files/1/1056/3342/products/Constellation_Wallpaper.jpg?v=1561241160");
+    height: 100vh;
+}
+
+.center {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px #25066d;
+}

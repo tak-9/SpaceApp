@@ -1,7 +1,8 @@
-import React, { currentComponent, useState } from "react";
+import React, { currentComponent, useState, useEffect  } from "react";
 import './TaskAdding.css';
 import axios from 'axios';
 import { serverUrl } from '../../utils/env';
+import TaskList from "./TaskList.js";
 
 function TaskAdding(props) {
 
@@ -9,9 +10,7 @@ function TaskAdding(props) {
     const [taskname, setTaskname] = useState('');
     const [category, setCategory] = useState('');
     const [reoccurring, setReoccurring] = useState('');
-
-
-
+   
     const handle = (event) => {
         event.preventDefault();
         console.log("------------------------")
@@ -48,32 +47,34 @@ function TaskAdding(props) {
                     console.log("other creation error");
                 }
             })
-
         onClick();
     }
 
     return (
-        <div className="surrounding">
-            <form action="/action_page.php">
-                <label for="taskname">Task Name</label><br />
-                <input type="text" id="taskname" name="taskname" placeholder="Task name is..."  
-                onChange={e => setTaskname(e.target.value)}/>
-                <br />
-                <label for="category">Category</label>
-                <br />
-                <select id="category" name="category" onChange={e => setCategory(e.target.value)}
-                defaultValue={'DEFAULT'}>
-                    <option value="DEFAULT" disabled>Choose a Category ...</option>
-                    <option value="wellness" selected>Wellness</option>
-                    <option value="social">Social</option>
-                    <option value="exercise">Exercise</option>
-                </select>
-                <br />
-                <input type="checkbox" id="reoc" name="reoc" value="reoc" onChange={e => setReoccurring(e.target.value)}/>
-                <label for="reoc"> Reoccurring? </label><br></br>
-                <br />
-                <input type="submit" value="Submit" id="submittingform" onClick={handle} />
-            </form>
+        <div>
+            <div className="surrounding">
+                <form action="/action_page.php">
+                    <label for="taskname">Task Name</label><br />
+                    <input type="text" id="taskname" name="taskname" placeholder="Task name is..."
+                        onChange={e => setTaskname(e.target.value)} />
+                    <br />
+                    <label for="category">Category</label>
+                    <br />
+                    <select id="category" name="category" onChange={e => setCategory(e.target.value)}
+                        defaultValue={'DEFAULT'}>
+                        <option value="DEFAULT" disabled>Choose a Category ...</option>
+                        <option value="wellness" selected>Wellness</option>
+                        <option value="social">Social</option>
+                        <option value="exercise">Exercise</option>
+                    </select>
+                    <br />
+                    <input type="checkbox" id="reoc" name="reoc" value="reoc" onChange={e => setReoccurring(e.target.value)} />
+                    <label for="reoc"> Reoccurring? </label><br></br>
+                    <br />
+                    <input type="submit" value="Submit" id="submittingform" onClick={handle} />
+                </form>
+            </div>
+            <br />
         </div>
     );
 }

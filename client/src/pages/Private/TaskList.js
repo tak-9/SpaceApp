@@ -3,26 +3,21 @@ import './TaskList.css';
 import { serverUrl } from '../../utils/env';
 import axios from 'axios';
 import TaskCard from "./TaskCard";
+import "./TaskCard/style.css";
 
 function TaskList(props) {
-    const [tasks, setTasks] = useState('');
-
-    useEffect(() => {
-        var url = serverUrl + '/api/all';
-
-        axios.get(url)
-        .then(res => {
-            console.log("--------------------")
-            console.log("### OK TaskList useEffect() axios get ", url, res);
-            setTasks(res);
-        })
-        .catch(err => {
-            console.log("### Error TaskList useEffect() axios get ", err);
-        });
-    },[])
+    console.log("Props . tasks: " + props.tasks)
+    let tasks = props.tasks;
+    console.log("Task List: " + tasks);
 
     return (
         <div className="tasklist">
+            <table> 
+            <tr>
+            <th>Task </th>
+            <th>Category </th>
+            <th>Completed </th>
+        </tr>
             {tasks.map(task => (
                                 <TaskCard
                                     taskname={task.taskname}
@@ -30,6 +25,7 @@ function TaskList(props) {
                                     completed={task.completed}
                                 />
                             ))} 
+            </table>
         </div>
     );
 }

@@ -38,5 +38,6 @@
     background-color: #18112e;
     color: white;
     padding: 20px;
-    width: 30%;
+    width: 50%;
+    border: white 1px solid;
   }
