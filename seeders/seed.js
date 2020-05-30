@@ -5,7 +5,7 @@ async function createUsers() {
     console.log("********* seed.js createUsers *************")
 
     await db.User.create({
-        username: "lisa",
+        username: "lisa@hotmail.com",
         password: "123",
     });
        
