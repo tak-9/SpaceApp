@@ -31,6 +31,12 @@
     margin-left: 10px;
 }
 
+#errorMsg {
+  color: #b44;
+  margin-left: 10px;
+
+}
+
 .form-label-group {
     height: 50px;
     border-radius: 40px;

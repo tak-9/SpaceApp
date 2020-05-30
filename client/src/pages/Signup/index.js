@@ -4,31 +4,36 @@ import { Redirect, Link } from 'react-router-dom';
 import { useHistory } from 'react-router';  
 import axios from 'axios';
 import { LoginContext } from '../../contexts/LoginContext';
+import { serverUrl } from '../../utils/env';
 
 function Signup() {
 
     const history = useHistory();
 
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState();
     const [rePassword, setRePassword] = useState();
+    const [errorMsg, setErrorMsg] = useState('');
 
 
     const submitForm = e => {
         e.preventDefault();
-
-        if (password = rePassword){
-            axios.post('/api/users/signup', {
-                email: email,
+        var url = serverUrl + '/api/signup';
+        if (password === rePassword){
+            axios.post(url, {
+                username: username,
                 password: password
             }).then((res) => {
                 console.log(res)
                 if(res.data.user.success){
                     history.push("/");
                 }
+            }).catch((error) => {
+                console.log(error + " line 31 error")
             })
         } else {
-            console.log("password entries do not match")
+    
+            setErrorMsg("Password entries do not match. Please re-enter password.")
         }
 
 
@@ -49,9 +54,10 @@ function Signup() {
                                     <h3 className="login-heading mb-4">Create an account for iSolution</h3>
                                     <small id="smallDesc">A solution for your isolation</small>
                                     <br />
+                                    <small id="errorMsg">{errorMsg}</small>
                                     <form id="form" onSubmit={submitForm}>
-                                            <input onChange={e => setEmail(e.target.value)} type="email" id="inputEmail" className="form-control form-label-group" placeholder="Email address" aria-label="Email address" required />
-                                            <input onChange={e => setPassword(e.target.value)} type="password" id="inputPassword" className="form-control form-label-group" placeholder="Password" aria-label="Password" required />
+                                            <input onChange={e => setUsername(e.target.value)} type="text" id="inputUsername" className="form-control form-label-group" placeholder="Enter username" aria-label="Username" required />
+                                            <input onChange={e => setPassword(e.target.value)} type="password" id="inputPassword" className="form-control form-label-group" placeholder="Enter password" aria-label="Password" required />
                                             <input onChange={e => setRePassword(e.target.value)} type="password" id="reInputPassword" className="form-control form-label-group" placeholder="Re-enter password" aria-label="Password" required />
                                         <button className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" id="signupbtn">Sign up</button>
                                         <div className="text-center">
