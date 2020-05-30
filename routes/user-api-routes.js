@@ -76,25 +76,26 @@ module.exports = function (app) {
     })
 
 
+    app.post("/api/create", async function (req, res) {
+        console.log("POST /api/create", req);
+        var taskname = req.body.taskname;
+        var category = req.body.category;
+        var reoccurring = req.body.reoccurring;
+        var completed = false;
 
-    //     console.log("hello from signup" + req.body.username)
-    //     db.User.create({
-    //         username: req.body.username,
-    //         password: req.body.password
-    //     })
-    //         .then(function () {
-    //             res.send({
-    //                 user: {
-    //                     id: user.id,
-    //                     username: user.username,
-    //                     success: true,
-    //                     mes: 'user account created'
-    //                 }
-    //             });
-    //         })
-    //         .catch(function (err) {
-    //             res.status(401).json(err);
-    //         });
-    // })
+        await db.Tasks.create({
+            taskname: taskname,
+            category: category,
+            reoccurring: reoccurring,
+            completed: completed
+        })
+        .then((data) => {
+            res.status(201).json({});
+        })
+        .catch(function (err) {
+            console.log("catch create", err);
+            res.status(500).json({ "message": "Error in creating." });
+        });
+    })
 
 }

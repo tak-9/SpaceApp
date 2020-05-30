@@ -25,7 +25,6 @@ function PrivateContent() {
 
     const handleSubmitForm = () => {
         setAdding(false);
-        
     } 
 
     return (
@@ -33,6 +32,7 @@ function PrivateContent() {
             <h1>Private Page</h1>
             <h3>Scheduling For {username}!</h3>
             { adding ? <TaskAdding onClick={handleSubmitForm}/> : <TaskButton onClick={handleSubmit}/>}  
+            <br />
             <TaskList />
             <button onClick={logoutHandler}>Logout</button> 
         </div>
