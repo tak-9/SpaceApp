@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans&display=swap');
+
+  #footerfont {
+    margin-left: 45%;
+    color: white;
+    font-size: 12px;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    flex-shrink: none;
+  }
+
+
+#navbarfooter {
+  position: fixed;
+  bottom: 0%;
+  background-color: #343a40;
+}
