@@ -102,6 +102,13 @@ async function createUsers() {
         UserId: 1
     });
 
+    await db.Tasks.create({
+        taskname: "userId 4 Talk on Zoom",
+        category: "social",
+        completed: 0,
+        reoccurring: 0,
+        UserId: 4
+    });
 
 }
 
