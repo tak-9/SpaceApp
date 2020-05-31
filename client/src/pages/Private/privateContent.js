@@ -56,7 +56,7 @@ function PrivateContent() {
             <div className="center">
 
                 <h3 id="scheduleheader">Day Management for {getUsername}</h3>
-
+                <p>To move an activity into your scheduler, highlight the activity name and drag it into your preferred time slot! :)</p>
             </div>
             <br />
             <br />
