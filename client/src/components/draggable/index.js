@@ -6,6 +6,12 @@ function Draggable(props) {
         const dt=e.dataTransfer;
         dt.effectAllowed="copyMove";
         dt.setData('transfer', e.target.id); 
+        const copy=dt.getData('transfer');
+        const parent=e.target.parentElement;
+        console.log(copy);
+        const newCopy=document.createElement("p");
+        newCopy.textContent=copy;
+        parent.appendChild(newCopy);
     }
     function noAllowDrop(e){
         e.preventDefault();
