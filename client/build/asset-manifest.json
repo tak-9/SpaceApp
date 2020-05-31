@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6f08d375.chunk.css",
+    "main.js": "/static/js/main.42ae6e94.chunk.js",
+    "main.js.map": "/static/js/main.42ae6e94.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8c40394c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8c40394c.js.map",
+    "static/js/2.7606beef.chunk.js": "/static/js/2.7606beef.chunk.js",
+    "static/js/2.7606beef.chunk.js.map": "/static/js/2.7606beef.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.715a75e24f889eed0299088ac1b0804b.js": "/precache-manifest.715a75e24f889eed0299088ac1b0804b.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.6f08d375.chunk.css.map": "/static/css/main.6f08d375.chunk.css.map",
+    "static/js/2.7606beef.chunk.js.LICENSE.txt": "/static/js/2.7606beef.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/annie-spratt-vg8UF3dx4pw-unsplash.8f88a77e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8c40394c.js",
+    "static/js/2.7606beef.chunk.js",
+    "static/css/main.6f08d375.chunk.css",
+    "static/js/main.42ae6e94.chunk.js"
+  ]
+}
