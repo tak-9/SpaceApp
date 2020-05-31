@@ -36,6 +36,7 @@ function TaskCard(props) {
               console.log(response)
               if (response.status === 200) {
                   console.log("Update Successful.");
+                  window.location.reload();
               }
           })
           .catch(error => {
