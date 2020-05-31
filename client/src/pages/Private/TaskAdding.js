@@ -1,4 +1,4 @@
-import React, { currentComponent, useState, useEffect  } from "react";
+import React, { currentComponent, useState, useEffect, useContext  } from "react";
 import './TaskAdding.css';
 import axios from 'axios';
 import { serverUrl } from '../../utils/env';
@@ -11,6 +11,8 @@ function TaskAdding(props) {
     const [category, setCategory] = useState('');
     const [reoccurring, setReoccurring] = useState('');
    
+    const localStorageUsername = localStorage.getItem('username');
+
     const handle = (event) => {
         event.preventDefault();
         window.location.reload(true);
@@ -26,8 +28,9 @@ function TaskAdding(props) {
             lasting = false
         }
         var url = serverUrl + '/api/create';
-        console.log(url);
+        console.log(localStorageUsername);
         axios.post(url, {
+            username: localStorageUsername,
             taskname: taskname,
             category: category,
             reoccurring: lasting,

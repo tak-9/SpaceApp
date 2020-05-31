@@ -12,6 +12,12 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
+    User.associate = function (models) {
+        User.hasOne(models.Tasks, {
+          onDelete: "cascade"
+        });
+    };
+
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
     };

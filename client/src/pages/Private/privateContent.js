@@ -6,21 +6,23 @@ import TaskButton from "./TaskButton.js";
 import axios from 'axios';
 import { serverUrl } from '../../utils/env';
 import TaskList from "./TaskList.js";
+import Schedule from '../../components/scheduler';
 import "./style.css";
 
 function PrivateContent() {
     let history = useHistory();
     let loginCtx = useContext(LoginContext);
     let { setLogInState, username } = loginCtx;
+    const getUsername = localStorage.getItem('username');
 
     const [adding, setAdding] = useState(false);
     const[redirectUrl, setRedirectUrl] = useState('');
 
-    const logoutHandler = () => {
-        console.log("logoutHandler");
-        setLogInState(false, null);
-        history.push("/");        
-    } 
+    // const logoutHandler = () => {
+    //     console.log("logoutHandler");
+    //     setLogInState(false, null);
+    //     history.push("/");        
+    // } 
 
     const handleSubmit = () => {
         setAdding(true);
@@ -33,8 +35,9 @@ function PrivateContent() {
     const [tasks, setTasks] = useState([]);
 
      useEffect(() => {
-        var url = serverUrl + '/api/all';
-
+        var url = serverUrl + '/api/all/' + getUsername;
+        console.log(url);
+        
         axios.get(url)
             .then(res => {
                 console.log("--------------------")
@@ -51,15 +54,16 @@ function PrivateContent() {
     return (
         <div className="body">
             <div className="center"> 
-            <h1>Private Page</h1>
-            <h3>Scheduling For {username}!</h3>
+            {/* <h1>Private Page</h1> */}
+            <h3>Scheduling For {getUsername}!</h3>
             </div>
             <br />
     { adding ? <TaskAdding onClick={handleSubmitForm} adding={adding} taskButtonClick={handleSubmit}/> : <TaskButton onClick={handleSubmit}/> } 
             <br />
             <TaskList tasks={tasks} />
             <br />
-            <button onClick={logoutHandler}>Logout</button> 
+            {/* <button onClick={logoutHandler}>Logout</button>  */}
+            {/* <Schedule/>  */}
         </div>
     );    
 }

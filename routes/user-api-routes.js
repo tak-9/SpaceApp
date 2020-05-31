@@ -33,8 +33,13 @@ module.exports = function (app) {
     });
 
     app.get("/api/logout", function (req, res) {
+        console.log("logout successful")
         req.logout();
-        res.send({});
+        res.send({
+            success: true,
+            mes: 'user logged out'
+        });
+        
     });
 
     app.post("/api/signup", function (req, res) {
@@ -77,29 +82,46 @@ module.exports = function (app) {
 
 
     app.post("/api/create", async function (req, res) {
-        console.log("POST /api/create", req);
+        console.log("POST /api/create");
+        var username = req.body.username;
         var taskname = req.body.taskname;
         var category = req.body.category;
         var reoccurring = req.body.reoccurring;
         var completed = false;
+        getUserId(username)
+        .then( (userId) => {
+            db.Tasks.create({
+                UserId: userId,
+                taskname: taskname,
+                category: category,
+                reoccurring: reoccurring,
+                completed: completed
+            })
+            .then((data) => {
+                res.status(201).json({});
+            })
+            .catch(function (err) {
+                console.log("catch create", err);
+                res.status(500).json({ "message": "Error in creating." });
+            });
+        })
+        .catch( (err) => {
+            console.log("catch getUserId", err);
+            res.status(500).json({ "message": "Error in gettingUserId." });
 
-        await db.Tasks.create({
-            taskname: taskname,
-            category: category,
-            reoccurring: reoccurring,
-            completed: completed
         })
-        .then((data) => {
-            res.status(201).json({});
-        })
-        .catch(function (err) {
-            console.log("catch create", err);
-            res.status(500).json({ "message": "Error in creating." });
-        });
     })
 
-    app.get("/api/all", function (req, res) {
-        db.Tasks.findAll({})
+    app.get("/api/all/:username", function (req, res) {    
+        var username = req.params.username;
+        console.log(username);
+
+        db.Tasks.findAll({
+            include:[{
+                model: db.User, 
+                where: { username: username }
+            }]    
+        })
         .then(function (results) {
             console.log("Reached api get!");
             res.json(results);
@@ -110,5 +132,25 @@ module.exports = function (app) {
         });
     });
 
+
+}
+
+// Parameter: username is username in MySQL
+// Returns: Corresponding UserId in MySQL 
+function getUserId(username){
+    return new Promise( (resolve, reject) => {
+        db.User.findOne({
+            where: {username: username}
+        })
+        .then((dbResult)=>{
+            console.log(dbResult);
+            console.log(`ID for ${username} is ${dbResult.dataValues.id}.`);
+            resolve(dbResult.dataValues.id);
+        })
+        .catch((err)=>{
+            console.log("err", err);
+            reject();
+        })    
+    } )  
 
 }
