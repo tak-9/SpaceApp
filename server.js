@@ -4,6 +4,7 @@ var passport = require("./config/passport");
 var cors = require("cors");
 var db = require("./models");
 var seed = require("./seeders/seed.js");
+const path = require('path')
 
 var app = express();
 var PORT = process.env.PORT || 3001;
@@ -13,7 +14,7 @@ app.use(express.json());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+    app.use(express.static(path.join(__dirname, "./client/build")));
 }
 
 app.use(
@@ -38,12 +39,13 @@ require("./routes/user-api-routes.js")(app);
 
 // Send every other request to the React app
 // Define any API routes before this runs
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 
-db.sequelize.sync({})
+db.sequelize.sync()
+//db.sequelize.sync({force:true})
 .then(function() {
     // seed.createUsers();
     app.listen(PORT, async function() {

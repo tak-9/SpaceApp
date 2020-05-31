@@ -35,8 +35,9 @@ function PrivateContent() {
     const [tasks, setTasks] = useState([]);
 
      useEffect(() => {
-        var url = serverUrl + '/api/all';
-
+        var url = serverUrl + '/api/all/' + getUsername;
+        console.log(url);
+        
         axios.get(url)
             .then(res => {
                 console.log("--------------------")
