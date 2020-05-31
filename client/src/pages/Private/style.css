@@ -1,10 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 .body {
     background-image: url("https://cdn.shopify.com/s/files/1/1056/3342/products/Constellation_Wallpaper.jpg?v=1561241160");
-    height: 100vh;
+    height: 150vh;
+    /* background-size: cover;
+    background-position: center; */
+    font-family: 'Quicksand', sans-serif;
 }
 
 .center {
     text-align: center;
     color: white;
     text-shadow: 2px 2px #25066d;
+}
+
+#scheduleheader {
+    margin: 20px;
+    padding: 20px;
+    font-size: 35px;
+    font-family: 'Quicksand', sans-serif;
 }

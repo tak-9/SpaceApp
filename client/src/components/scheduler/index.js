@@ -6,15 +6,15 @@ import Droppable from "../droppable";
 
 function Schedule() {
 
-    const hours = [5, 6, 7, 8, 9, 10, 11, 12];
-    const hoursPM = [1, 2, 3, 4, 5, 6];
+    const hours = [5, 6, 7, 8, 9, 10, 11];
+    const hoursPM = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     // const hours=["5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM"];
     return (
         <table className="scheduler">
             <thead>
                 <tr>
                     <th>Time</th>
-                    <th className="schedule-content">Content</th>
+                    <th className="schedule-content">Activities</th>
                 </tr>
             </thead>
             <tbody>
