@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 function Draggable(props) {
     function drag(e){
-        e.dataTransfer.setData('transfer', e.target.id); 
+        const dt=e.dataTransfer;
+        dt.effectAllowed="copyMove";
+        dt.setData('transfer', e.target.id); 
     }
     function noAllowDrop(e){
         e.preventDefault();

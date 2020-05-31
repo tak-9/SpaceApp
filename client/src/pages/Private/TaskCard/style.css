@@ -15,7 +15,7 @@
   font-size: 15px;
 }
 
-th, td {
+.taskList {
   padding: 30px 60px 10px 10px;
   width: 100%;
   border: 1px black solid;

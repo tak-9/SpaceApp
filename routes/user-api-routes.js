@@ -132,6 +132,26 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/api/incompleted/:username", function (req, res) {    
+        var username = req.params.username;
+        console.log(username);
+
+        db.Tasks.findAll({
+            include:[{
+                model: db.User, 
+                where: { username: username }
+            }],
+            where: { completed: false }  
+        })
+        .then(function (results) {
+            console.log("Reached api get!");
+            res.json(results);
+        })
+        .catch(function (err) {
+            console.log("catch get", err);
+            res.status(500).json({ "message": "Error in getting." });
+        });
+    });
 
 }
 
