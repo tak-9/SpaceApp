@@ -12,6 +12,8 @@ function TaskAdding(props) {
     const [reoccurring, setReoccurring] = useState('');
    
     const handle = (event) => {
+        event.preventDefault();
+        window.location.reload(true);
         console.log("------------------------")
         console.log(taskname);
         console.log(category);

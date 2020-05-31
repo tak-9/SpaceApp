@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "pega!Sus123",
+    "password": "tItDp!123",
     "database": "space_app",
     "host": "127.0.0.1",
     "dialect": "mysql"
