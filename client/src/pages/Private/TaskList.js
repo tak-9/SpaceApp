@@ -15,27 +15,17 @@ function TaskList(props) {
         <div className="tasklist">
             <table>
                 <tr>
-                    <th>Task </th>
-                    <th>Category </th>
-                    <th>Completed </th>
+                    <th className="taskList">Task </th>
+                    <th className="taskList">Category </th>
+                    <th className="taskList">Completed </th>
                 </tr>
-                <Draggable id="drag1">
-                    test 1
-
-                </Draggable>
-                <Draggable id="drag2">
-                    test 2
-
-                </Draggable>
                 
-                {tasks.map((task,index) => (
-                    <Draggable id={index}>
+                {tasks.map(task => (
                         <TaskCard  
                             taskname={task.taskname}
                             category={task.category}
                             completed={task.completed}
                         />
-                    </Draggable>
 
                 ))}
             </table>
