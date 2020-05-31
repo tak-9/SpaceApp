@@ -4,7 +4,7 @@ import { serverUrl } from '../../utils/env';
 import axios from 'axios';
 import TaskCard from "./TaskCard";
 import "./TaskCard/style.css";
-import Draggable from 'react-draggable';
+import Draggable from '../../components/draggable';
 
 function TaskList(props) {
     console.log("Props . tasks: " + props.tasks)
@@ -19,9 +19,18 @@ function TaskList(props) {
                     <th>Category </th>
                     <th>Completed </th>
                 </tr>
-                {tasks.map(task => (
-                    <Draggable>
-                        <TaskCard
+                <Draggable id="drag1">
+                    test 1
+
+                </Draggable>
+                <Draggable id="drag2">
+                    test 2
+
+                </Draggable>
+                
+                {tasks.map((task,index) => (
+                    <Draggable id={index}>
+                        <TaskCard  
                             taskname={task.taskname}
                             category={task.category}
                             completed={task.completed}

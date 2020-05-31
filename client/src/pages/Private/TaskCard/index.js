@@ -11,16 +11,16 @@ function TaskCard(props) {
 
   const handleComplete = () => {
     completed = "Completed";
-} 
+  }
 
   return (
-    <ul>
-    <li>{props.taskname}</li>
-    <li>{props.category}</li>
-    <li>
-    <button onClick={handleComplete}>Complete</button>
-    </li>
-   </ul>
+    <tr>
+      <td>{props.taskname}</td>
+      <td>{props.category}</td>
+      <td>
+        <button onClick={handleComplete}>Complete</button>
+      </td>
+    </tr>
   );
 }
 
