@@ -43,12 +43,22 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
+// Change this flag to enable/disable recreating database.
+var recreateDB = true;
 
-db.sequelize.sync()
-//db.sequelize.sync({force:true})
-.then(function() {
-    // seed.createUsers();
-    app.listen(PORT, async function() {
-        console.log("==> Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-    });
-});
+if (recreateDB) {
+    db.sequelize.sync({force:true})
+    .then(function() {
+        app.listen(PORT, async function() {
+            console.log("==> Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+        });
+    });    
+} else {
+    db.sequelize.sync()
+    .then(function() {
+        seed.createUsers();
+        app.listen(PORT, async function() {
+            console.log("==> Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+        });
+    });    
+}

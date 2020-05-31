@@ -15,6 +15,7 @@ function TaskAdding(props) {
 
     const handle = (event) => {
         event.preventDefault();
+        window.location.reload(true);
         console.log("------------------------")
         console.log(taskname);
         console.log(category);
