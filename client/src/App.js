@@ -17,6 +17,7 @@ function App() {
             <Navbar />
                 <div>
                     <Route exact path="/" component={Home} />
+                    <Route exact path="/about" component={About} />
                     <Route exact path="/schedulemaker" component={Private} />
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/chart" component={PieChart} />
