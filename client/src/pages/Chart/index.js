@@ -2,83 +2,89 @@ import React, {Component} from 'react';
 import Chart from 'chart.js';
 import axios from 'axios';
 import chartColors, { chartColorsInHex } from './chartUtil';
+import {serverUrl} from '../../utils/env'
 
 class PieChart extends Component {
     chartRef = React.createRef();
    
-    /*
     constructor(props){
         super(props);
         this.state = {
+            username: '', 
             categories: [],
             hours: []            
         }
     }
-    */
 
     componentDidMount(){
-        // this.getData()
-        // .then(result => this.createChart(result));
-        this.createChart();
+        var uname = localStorage.getItem('username');
+        this.setState({
+            username: uname 
+        });
+
+        this.getData()
+        .then(result => this.createChart(result))
+        .catch(err => console.log(err) );
+
+        //this.createChart();
     }
 
-    /*
+    
     getData() {
         return new Promise((resolve, reject) => { 
-            const url = "/api/dummy";
+            var uname = localStorage.getItem('username');
+            const url = serverUrl + "/api/incompleted/" + uname;
+            console.log("axios get ", url);
             axios.get(url)
             .then(res => {
-                var hours = [];
-                    // process data here. 
-                    // hours.sort((a,b) => b.cases - a.cases);
-                resolve(hours);
+                console.log("res.data",res);
+
+                var jsonObj = {};
+
+                for (var i=0; i<res.data.length; i++) { 
+                    // Check if there is a property
+                    if (jsonObj.hasOwnProperty(res.data[i].category)){
+                        jsonObj[res.data[i].category] =  jsonObj[res.data[i].category] + 1; 
+                    } else {
+                        // create a new entry in JSON
+                        jsonObj[res.data[i].category] = 1;
+                    }
+                }
+                console.log("jsonObj", jsonObj)
+                
+                resolve(jsonObj);
             })
             .catch(err=>{
                 reject(err);
             })
         })
     }
-    */
+    
 
-    createChart(input) {
+    createChart(jsonObj) {
         const myChartRef = this.chartRef.current.getContext("2d");
 
-        /*
-        var confirmedCases = [];
-        var states = [];
-        //var labels = [];
-        for (let i=0; i<input.length; i++){
-            confirmedCases.push(input[i].cases);
-            states.push(input[i].state);
-            //labels.push(input[i].state + "(" + input[i].cases + ")")
-        }
-        
-        this.setState({
-            states: states,
-            confirmedCases: confirmedCases
-        });
-        */
+    //    var jsonObj = {selfcare: 13,
+    //                 work:8, 
+    //                 social:1}
 
-       var jsonObj = {selfcare: 13,
-                    work:8, 
-                    social:1}
+        var categories = [];
+        var numbers = [];
 
-       var categories = [];
-       var hours = [];
 
         for (var key in jsonObj ){
             //console.log("key is " + key + ", value is " + jsonObj[key]);
             categories.push(key);
-            hours.push(jsonObj[key]);
+            numbers.push(jsonObj[key]);
         }
-        console.log(categories, hours);
+        //console.log(categories, numbers);
 
         new Chart(myChartRef, {
             type: 'doughnut',
             data: {
               labels: categories,
               datasets: [{
-                data: hours,
+                data: numbers,
                 backgroundColor: [
                     chartColors.red,
                     chartColors.blue,
