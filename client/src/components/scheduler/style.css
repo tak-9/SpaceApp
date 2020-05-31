@@ -7,8 +7,7 @@ td{
     text-align: center;
 }
 .time{
-    border-right: 3px solid darkgray;
-    width: 10%;
+    width: 10px;
 }
 th{
     text-align: center;
@@ -28,5 +27,4 @@ th{
 .drag{
     margin:0 auto;
     width: 50%;
-    background: yellow;
 }

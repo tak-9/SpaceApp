@@ -59,7 +59,13 @@ function PrivateContent() {
             <br />
     { adding ? <TaskAdding onClick={handleSubmitForm} adding={adding} taskButtonClick={handleSubmit}/> : <TaskButton onClick={handleSubmit}/> } 
             <br />
+            <div className="list-container">
+
             <TaskList tasks={tasks} />
+            </div>
+            <div className="list-container">
+                <Schedule/>
+            </div>
             <br />
             {/* <button onClick={logoutHandler}>Logout</button>  */}
             {/* <Schedule/>  */}

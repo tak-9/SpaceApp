@@ -14,13 +14,13 @@ function TaskCard(props) {
 } 
 
   return (
-    <tr>
-    <td>{props.taskname}</td>
-    <td>{props.category}</td>
-    <td>
+    <ul>
+    <li>{props.taskname}</li>
+    <li>{props.category}</li>
+    <li>
     <button onClick={handleComplete}>Complete</button>
-    </td>
-   </tr>
+    </li>
+   </ul>
   );
 }
 
