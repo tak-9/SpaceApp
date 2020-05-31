@@ -14,6 +14,8 @@ function TaskAdding(props) {
     const localStorageUsername = localStorage.getItem('username');
 
     const handle = (event) => {
+        event.preventDefault();
+        window.location.reload(true);
         console.log("------------------------")
         console.log(taskname);
         console.log(category);
