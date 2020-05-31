@@ -1,6 +1,9 @@
 import React from "react";
 import "./style.css";
 import Draggable from '../../../components/draggable';
+import { decodeBase64 } from "bcryptjs";
+import { serverUrl } from '../../../utils/env';
+import axios from 'axios';
 
 function TaskCard(props) {
 
@@ -13,6 +16,26 @@ function TaskCard(props) {
 
   const handleComplete = () => {
     completed = "Completed";
+    var taskname = props.taskname;
+    var username = props.username;
+    var url = serverUrl + '/api/update';
+        console.log(url);
+        
+        axios.post(url, {
+          taskname: taskname,
+          username: username
+      })
+          .then(response => {
+              console.log('updating response: ')
+              console.log(response)
+              if (response.status === 200) {
+                  console.log("Update Successful.");
+                  window.location.reload();
+              }
+          })
+          .catch(error => {
+              console.log('login error: ', error);
+          })
   }
 
   return (

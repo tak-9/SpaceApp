@@ -35,7 +35,7 @@ function PrivateContent() {
     const [tasks, setTasks] = useState([]);
 
      useEffect(() => {
-        var url = serverUrl + '/api/all/' + getUsername;
+        var url = serverUrl + '/api/incompleted/' + getUsername;
         console.log(url);
         
         axios.get(url)
@@ -62,7 +62,7 @@ function PrivateContent() {
             <br />
             <div className="list-container">
 
-            <TaskList tasks={tasks} />
+            <TaskList tasks={tasks} username={getUsername}/>
             </div>
             <div className="list-container">
                 <Schedule/>

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('./greg-rakozy-oMpAz-DN-9I-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .aboutheader {
+      font-size: 80px;
+      font-family: 'Quicksand', sans-serif;
+  }
+
+  .lead {
+      font-size: 30px;
+      font-weight: 700;
+      font-family: 'Quicksand', sans-serif;
+  }
