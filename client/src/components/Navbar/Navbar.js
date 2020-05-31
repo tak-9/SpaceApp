@@ -87,7 +87,7 @@ function Navbar() {
                                         <a className="dropdown-item" href="/schedulemaker">My Scheduler</a>
                                         <a className="dropdown-item" href="/chart">My Progress</a>
                                         <div className="dropdown-divider"></div>
-                                        <a className="dropdown-item" href="/about">About us</a>
+                                        <a className="dropdown-item" href="/about">About iSolution</a>
                                         <a onClick={logout} className="dropdown-item" href="#">Logout</a>
                                     </div>
                                 </li>

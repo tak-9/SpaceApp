@@ -22,7 +22,6 @@ function App() {
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/chart" component={PieChart} />
                     <Route exact path="/logout" component={Home} />
-                    <Route exact path="/about" component={About} />
                 </div>
             <Footer />
             </BrowserRouter>

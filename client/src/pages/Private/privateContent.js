@@ -16,7 +16,7 @@ function PrivateContent() {
     const getUsername = localStorage.getItem('username');
 
     const [adding, setAdding] = useState(false);
-    const[redirectUrl, setRedirectUrl] = useState('');
+    const [redirectUrl, setRedirectUrl] = useState('');
 
     // const logoutHandler = () => {
     //     console.log("logoutHandler");
@@ -26,18 +26,18 @@ function PrivateContent() {
 
     const handleSubmit = () => {
         setAdding(true);
-    } 
+    }
 
     const handleSubmitForm = () => {
         setAdding(false);
-    } 
+    }
 
     const [tasks, setTasks] = useState([]);
 
-     useEffect(() => {
+    useEffect(() => {
         var url = serverUrl + '/api/incompleted/' + getUsername;
         console.log(url);
-        
+
         axios.get(url)
             .then(res => {
                 console.log("--------------------")
@@ -48,31 +48,31 @@ function PrivateContent() {
             .catch(err => {
                 console.log("### Error TaskList useEffect() axios get ", err);
             });
-     }, [])
+    }, [])
 
 
     return (
         <div className="body">
-            <div className="center"> 
-            {/* <h1>Private Page</h1> */}
-            <h3>Scheduling For {getUsername}!</h3>
-            To move an added task onto your hourly schedule, highlight it and drag it into the time slot! :)
+            <div className="center">
+
+                <h3 id="scheduleheader">Day Management for {getUsername}</h3>
+   To move an added task onto your hourly schedule, highlight it and drag it into the time slot! :)
             </div>
             <br />
-    { adding ? <TaskAdding onClick={handleSubmitForm} adding={adding} taskButtonClick={handleSubmit}/> : <TaskButton onClick={handleSubmit}/> } 
+            {adding ? <TaskAdding onClick={handleSubmitForm} adding={adding} taskButtonClick={handleSubmit} /> : <TaskButton onClick={handleSubmit} />}
             <br />
             <div className="list-container">
 
-            <TaskList tasks={tasks} username={getUsername}/>
+                <TaskList tasks={tasks} username={getUsername} />
             </div>
             <div className="list-container">
-                <Schedule/>
+
+                <Schedule />
             </div>
             <br />
-            {/* <button onClick={logoutHandler}>Logout</button>  */}
-            {/* <Schedule/>  */}
+
         </div>
-    );    
+    );
 }
 
 export default PrivateContent;
