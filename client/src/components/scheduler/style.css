@@ -25,12 +25,12 @@ th{
 }
 .even-row{
     font-size: 24px;
-    color:black;
+    color:white;
     border-bottom: 3px solid black;
 }
 .odd-row{
     font-size: 24px;
-    color:black;
+    color:white;
     border-bottom: 3px solid black;
 }
 .drag{
@@ -45,4 +45,7 @@ th{
     position: absolute;
     right:15px;
     top:5px;
+}
+thead{
+    color:white;
 }
