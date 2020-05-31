@@ -4,6 +4,7 @@ var passport = require("./config/passport");
 var cors = require("cors");
 var db = require("./models");
 var seed = require("./seeders/seed.js");
+const path = require('path')
 
 var app = express();
 var PORT = process.env.PORT || 3001;
