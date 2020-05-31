@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import Chart from 'chart.js';
 import axios from 'axios';
 import chartColors, { chartColorsInHex } from './chartUtil';
-import {serverUrl} from '../../utils/env'
+import {serverUrl} from '../../utils/env';
+import "../Private/style.css";
 
 class PieChart extends Component {
     chartRef = React.createRef();
@@ -121,14 +122,18 @@ class PieChart extends Component {
 
     render() {
         return ( 
-        <div>
-            <h3>Pie Chart - Breakdown of today's activities</h3>
-            <div>
-                <div>
-                    <canvas id="myChart" ref={this.chartRef} />
-                </div>
+            <div className="body">
+                    <div className="row justify-content-center">
+                        <h3 className="mt-3 mb-3 center">Pie Chart - Breakdown of today's activities</h3>
+                    </div>
+                    <div className="row justify-content-center ">
+                        <div className="card shadow-lg" style={{ width: "400px" }}>
+                                <div className="card-body">
+                                    <canvas id="myChart" ref={this.chartRef} />
+                                </div>
+                        </div>
+                    </div>
             </div>
-        </div>
         )
     };
 }
