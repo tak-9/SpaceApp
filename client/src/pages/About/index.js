@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import "./About.css";
 
 function About() {
     return (
@@ -9,7 +10,7 @@ function About() {
                 <div className="container h-100">
                     <div className="row h-100 align-items-center">
                         <div className="col-12 text-center">
-                            <h1 className="font-weight-light">About iSolution</h1>
+                            <h1 className="aboutheader">About iSolution</h1>
                             <p className="lead">Why Manage Your Day?</p>
                         </div>
                     </div>
@@ -50,7 +51,7 @@ function About() {
 
 
                     <p>
-                        As another NASA astronaut Scott Kelly also wrote on the
+                        As another NASA astronaut Scott Kelly also wrote in the
                  <a href="https://www.nytimes.com/2020/03/21/opinion/scott-kelly-coronavirus-isolation.html" target="blank"> New York Times</a>:
 
                  </p>
