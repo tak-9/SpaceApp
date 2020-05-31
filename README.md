@@ -22,7 +22,8 @@ Features:
  
  ## How to Use:
 Sign up using your email and get moving!
- 
+
+
  ### Prerequisites
 
 What things you need to install the software and how to install them
@@ -47,4 +48,4 @@ Npm install necessary add-ons, npm start, edit the config connection file to mee
 Have a look for yourself here: [Link](https://isolution.herokuapp.com/)
 ![Image]()
 
-
+Demo username: isolution, password: 123
