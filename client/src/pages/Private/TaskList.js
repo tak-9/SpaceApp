@@ -4,6 +4,7 @@ import { serverUrl } from '../../utils/env';
 import axios from 'axios';
 import TaskCard from "./TaskCard";
 import "./TaskCard/style.css";
+import Draggable from '../../components/draggable';
 
 function TaskList(props) {
     console.log("Props . tasks: " + props.tasks)
@@ -12,19 +13,21 @@ function TaskList(props) {
 
     return (
         <div className="tasklist">
-            <table> 
-            <tr>
-            <th>Task </th>
-            <th>Category </th>
-            <th>Completed </th>
-        </tr>
-            {tasks.map(task => (
-                                <TaskCard
-                                    taskname={task.taskname}
-                                    category={task.category}
-                                    completed={task.completed}
-                                />
-                            ))} 
+            <table>
+                <tr>
+                    <th className="taskList">Task </th>
+                    <th className="taskList">Category </th>
+                    <th className="taskList">Completed </th>
+                </tr>
+                
+                {tasks.map(task => (
+                        <TaskCard  
+                            taskname={task.taskname}
+                            category={task.category}
+                            completed={task.completed}
+                        />
+
+                ))}
             </table>
         </div>
     );
