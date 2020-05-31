@@ -40,7 +40,7 @@ function TaskCard(props) {
 
   return (
     <tr>
-      <td  className="taskList">
+      <td  className="taskList" data-toggle="tooltip" data-placement="top" title="Highlight and drag into the daily scheduler">
         <Draggable id={props.taskname}>
           {props.taskname}
         </Draggable> </td>
