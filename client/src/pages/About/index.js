@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "./About.css";
+import { useHistory } from 'react-router';
 
 function About() {
+
+    const history = useHistory();
+
+    const onClick = e => {
+        history.push("/schedulemaker");
+    }
+
     return (
         <div>
 
@@ -74,9 +82,12 @@ function About() {
                     <p>
                             To combat the effects on mental health, the iSolution team has worked to create a solution based on the tips from NASA astronauts. iSolution focuses on providing a day management tool for users to start their Self-Care journey by scheduling in Self-Care activities on top of being productive during work hours by easily creating a task list and pulling it into a daily calendar for easy time management. 
                             </p>
-                            <p><i>Click <a href="/schedulemaker">here</a> to commence using the daily scheduler.</i></p>
+                            <p>
+                            <button className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" id="commence" onClick={onClick} >Commence using the daily scheduler</button>
+                            </p>
+                            {/* <p><i>Click <a href="/schedulemaker">here</a> to commence using the daily scheduler.</i></p> */}
                         <p>
-                            NASA offers more information on Self-Care in the <a href="https://www.nasa.gov/audience/foreducators/stem-on-station/expeditionary-skills-for-life.html">Expeditionary Skills for Life</a> section on their NASA STEM website.  There are tools available for people to learn how to plan their time, including setting SMART goals, creating a daily schedule and prioritising tasks and self-care activities, and managing stress. To stay healthy, it is paramount for everyone to learn how to manage our day in a productive and loving manner, and iSolution is here to do that with you.</p>
+                            NASA offers more information on Self-Care in the <a href="https://www.nasa.gov/audience/foreducators/stem-on-station/expeditionary-skills-for-life.html" target="blank">Expeditionary Skills for Life</a> section on their NASA STEM website.  There are tools available for people to learn how to plan their time, including setting SMART goals, creating a daily schedule and prioritising tasks and self-care activities, and managing stress. To stay healthy, it is paramount for everyone to learn how to manage our day in a productive and loving manner, and <b>iSolution is here to do that with you</b>.</p>
                         <br />
                         <small>
                             The information from <a href="https://www.nasa.gov/multimedia/guidelines/index.html" target="blank">NASA</a> and <a href="https://help.nytimes.com/hc/en-us/articles/115014891408-Obtaining-and-using-Times-content" target="blank">New York Times</a> was used in accordance with their terms and conditions.</small>
