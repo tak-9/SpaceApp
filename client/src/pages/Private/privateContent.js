@@ -62,7 +62,7 @@ function PrivateContent() {
             <br />
             <div className="list-container">
 
-            <TaskList tasks={tasks} />
+            <TaskList tasks={tasks} username={getUsername}/>
             </div>
             <div className="list-container">
                 <Schedule/>

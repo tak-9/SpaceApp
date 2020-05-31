@@ -153,6 +153,33 @@ module.exports = function (app) {
         });
     });
 
+    
+app.post("/api/update", async function (req, res) {
+    console.log("POST /api/update");
+    var taskname = req.body.taskname;
+    var username = req.body.username;
+    getUserId(username)
+    .then( (userId) => {
+        db.Tasks.findAll({
+            where: {
+               UserId: userId
+            }
+         }).then(function(device) {
+            if (!device) {
+                return 'not find';
+            }
+            db.Tasks.update(
+                {completed: true},
+                {where: {taskname: taskname}}
+              )
+              .then(function(rowsUpdated) {
+                res.json(rowsUpdated)
+              })
+              .catch(next)
+             })
+         });
+
+    })
 }
 
 // Parameter: username is username in MySQL
@@ -173,4 +200,4 @@ function getUserId(username){
         })    
     } )  
 
-}
+};
