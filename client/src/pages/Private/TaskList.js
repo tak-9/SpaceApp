@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import './TaskList.css';
-import { serverUrl } from '../../utils/env';
-import axios from 'axios';
 import TaskCard from "./TaskCard";
 import "./TaskCard/style.css";
 import Draggable from '../../components/draggable';
@@ -25,6 +23,7 @@ function TaskList(props) {
                             taskname={task.taskname}
                             category={task.category}
                             completed={task.completed}
+                            username={props.username}
                         />
 
                 ))}
