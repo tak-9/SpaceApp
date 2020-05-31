@@ -59,6 +59,8 @@ function PrivateContent() {
    To move an added task onto your hourly schedule, highlight it and drag it into the time slot! :)
             </div>
             <br />
+            <br />
+            <br />
             {adding ? <TaskAdding onClick={handleSubmitForm} adding={adding} taskButtonClick={handleSubmit} /> : <TaskButton onClick={handleSubmit} />}
             <br />
             <div className="list-container">
