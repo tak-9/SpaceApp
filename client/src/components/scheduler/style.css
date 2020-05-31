@@ -1,14 +1,19 @@
 .scheduler{
-    margin:0 auto;
-    width: 50vw;
+    float: right;
+    position: absolute;
+    top: 17%;
+    right:0px;
+    margin-right: 20px;
+    width: 45%;
 }
 td{
    
     text-align: center;
 }
 .time{
-    border-right: 3px solid darkgray;
-    width: 10%;
+    font-size: 16px;
+    width: 10px;
+    border-right: 3px solid black;
 }
 th{
     text-align: center;
@@ -17,16 +22,27 @@ th{
 .schedule-content{
     height: 50px;
     width: 80%;
-    text-align: center;
 }
 .even-row{
-    background: lightblue;
+    font-size: 24px;
+    color:black;
+    border-bottom: 3px solid black;
 }
 .odd-row{
-    background: lightgray;
+    font-size: 24px;
+    color:black;
+    border-bottom: 3px solid black;
 }
 .drag{
     margin:0 auto;
     width: 50%;
-    background: yellow;
+}
+.drop{
+    position: relative;
+}
+.far{
+    
+    position: absolute;
+    right:15px;
+    top:5px;
 }

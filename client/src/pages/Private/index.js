@@ -37,7 +37,6 @@ function Private() {
         <div>
             {/* { loggedIn ? <PrivateContent />: <Home /> } */}
             <PrivateContent />
-            <Schedule />
         </div>
     );
     
