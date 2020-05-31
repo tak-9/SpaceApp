@@ -49,6 +49,7 @@ var recreateDB = true;
 if (recreateDB) {
     db.sequelize.sync({force:true})
     .then(function() {
+        seed.createUsers();
         app.listen(PORT, async function() {
             console.log("==> Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
         });
@@ -56,7 +57,6 @@ if (recreateDB) {
 } else {
     db.sequelize.sync()
     .then(function() {
-        seed.createUsers();
         app.listen(PORT, async function() {
             console.log("==> Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
         });
