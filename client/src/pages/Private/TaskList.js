@@ -13,7 +13,7 @@ function TaskList(props) {
         <div className="tasklist">
             <table>
                 <tr>
-                    <th className="taskList">Task </th>
+                    <th className="taskList">Activity </th>
                     <th className="taskList">Category </th>
                     <th className="taskList">Completed </th>
                 </tr>

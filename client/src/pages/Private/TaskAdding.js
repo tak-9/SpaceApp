@@ -57,9 +57,9 @@ function TaskAdding(props) {
     return (
         <div>
             <div className="surrounding">
-                <form action="/action_page.php">
-                    <label for="taskname">Task Name</label><br />
-                    <input type="text" id="taskname" name="taskname" placeholder="Task name is..."
+                <form action="/action_page.php" id="taskform">
+                    <label for="taskname">Activity Name</label><br />
+                    <input type="text" id="taskname" name="taskname" placeholder="Activity name is..."
                         onChange={e => setTaskname(e.target.value)} />
                     <br />
                     <label for="category">Category</label>
@@ -70,6 +70,8 @@ function TaskAdding(props) {
                         <option value="wellness" selected>Wellness</option>
                         <option value="social">Social</option>
                         <option value="exercise">Exercise</option>
+                        <option value="work">Work</option>
+                        <option value="play">Play</option>
                     </select>
                     <br />
                     <input type="checkbox" id="reoc" name="reoc" value="reoc" onChange={e => setReoccurring(e.target.value)} />

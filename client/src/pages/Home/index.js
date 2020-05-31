@@ -31,7 +31,7 @@ function Home() {
 		} 
 		if (getUsername) {
 			console.log("user is logged in")
-            setRedirectTo("/schedulemaker");
+            setRedirectTo("/about");
 		}
 
 	}, [])
@@ -55,7 +55,7 @@ function Home() {
                     console.log("Login Successful.");
                     setLogInState(true, response.data.username);
                     localStorage.setItem('username', response.data.username);
-                    setRedirectTo("/schedulemaker");
+                    setRedirectTo("/about");
                 }
             })
             .catch(error => {
