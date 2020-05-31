@@ -56,6 +56,7 @@ function PrivateContent() {
             <div className="center">
 
                 <h3 id="scheduleheader">Day Management for {getUsername}</h3>
+   To move an added task onto your hourly schedule, highlight it and drag it into the time slot! :)
             </div>
             <br />
             {adding ? <TaskAdding onClick={handleSubmitForm} adding={adding} taskButtonClick={handleSubmit} /> : <TaskButton onClick={handleSubmit} />}
