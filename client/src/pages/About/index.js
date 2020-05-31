@@ -72,8 +72,9 @@ function About() {
                         Self-Care means keeping track of how healthy you are on psychological and physical levels. It includes hygiene, managing your time, activities and responsibilities, getting sleep, and maintaining your mood. Through self-care, you demonstrate your ability to be proactive in staying healthy.</p>
 
                     <p>
-                            To combat the effects on mental health, the iSolution team has worked to create a solution based on the tips from NASA astronauts. iSolution focuses on providing a day management tool for users to start their Self-Care journey by scheduling in Self-Care activities on top of being productive during work hours by easily creating a task list and pulling it into a daily calendar for easy time management.
-                </p>
+                            To combat the effects on mental health, the iSolution team has worked to create a solution based on the tips from NASA astronauts. iSolution focuses on providing a day management tool for users to start their Self-Care journey by scheduling in Self-Care activities on top of being productive during work hours by easily creating a task list and pulling it into a daily calendar for easy time management. 
+                            </p>
+                            <p><i>Click <a href="/schedulemaker">here</a> to commence using the daily scheduler.</i></p>
                         <p>
                             NASA offers more information on Self-Care in the <a href="https://www.nasa.gov/audience/foreducators/stem-on-station/expeditionary-skills-for-life.html">Expeditionary Skills for Life</a> section on their NASA STEM website.  There are tools available for people to learn how to plan their time, including setting SMART goals, creating a daily schedule and prioritising tasks and self-care activities, and managing stress. To stay healthy, it is paramount for everyone to learn how to manage our day in a productive and loving manner, and iSolution is here to do that with you.</p>
                         <br />

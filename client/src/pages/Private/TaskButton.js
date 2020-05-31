@@ -6,7 +6,7 @@ function TaskButton(props) {
 
     return (
         <div>
-            <button onClick={onClick} className="TaskButton">Add New Task</button>
+            <button onClick={onClick} className="TaskButton">Add New Activity</button>
         </div>
     );
 }
