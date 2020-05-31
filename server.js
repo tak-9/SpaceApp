@@ -44,7 +44,8 @@ app.get("*", (req, res) => {
 });
 
 
-db.sequelize.sync({})
+db.sequelize.sync()
+//db.sequelize.sync({force:true})
 .then(function() {
     // seed.createUsers();
     app.listen(PORT, async function() {
